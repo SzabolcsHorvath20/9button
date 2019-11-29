@@ -19,7 +19,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Random rnd = new Random();
     private TextView tvhp, tvpoints;
     private Thread i = (new Thread(new Timed()));
-    private int active1 = 1, active2 = 0, active3 = 0, active4 = 0, active5 = 0, active6 = 0, active7 = 0, active8 = 0, active9 = 0;
+    private boolean bool1, bool2, bool3, bool4, bool5, bool6, bool7, bool8, bool9;
+    private BooleanReplacer active1 = new BooleanReplacer(bool1);
+    private BooleanReplacer active2 = new BooleanReplacer(bool2);
+    private BooleanReplacer active3 = new BooleanReplacer(bool3);
+    private BooleanReplacer active4 = new BooleanReplacer(bool4);
+    private BooleanReplacer active5 = new BooleanReplacer(bool5);
+    private BooleanReplacer active6 = new BooleanReplacer(bool6);
+    private BooleanReplacer active7 = new BooleanReplacer(bool7);
+    private BooleanReplacer active8 = new BooleanReplacer(bool8);
+    private BooleanReplacer active9 = new BooleanReplacer(bool9);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         tvhp.setText(String.valueOf(hp));
-        hppoints();
         i.start();
+        hppoints();
     }
 
     protected void onStop()
@@ -38,6 +47,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void hppoints()
     {
+        active1.setBool(false);
+        active2.setBool(false);
+        active3.setBool(false);
+        active4.setBool(false);
+        active5.setBool(false);
+        active6.setBool(false);
+        active7.setBool(false);
+        active8.setBool(false);
+        active9.setBool(false);
+
+
         LoseHPwinPoints(btn1, active1);
         LoseHPwinPoints(btn2, active2);
         LoseHPwinPoints(btn3, active3);
@@ -79,131 +99,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (button)
             {
                 case 1:
-                    //colorChanger(btn1, active1);
-                    btn1.setBackgroundColor(Color.rgb(255,0,0));
-                    active1 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn1.setBackgroundColor(Color.rgb(0,255,0));
-                    active1 = 0;
+                    colorChanger(btn1, active1);
                     break;
                 case 2:
-                    btn2.setBackgroundColor(Color.rgb(255,0,0));
-                    active2 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn2.setBackgroundColor(Color.rgb(0,255,0));
-                    active2 = 0;
-                    //colorChanger(btn2, active2);
+                    colorChanger(btn2, active2);
                     break;
                 case 3:
-                    btn3.setBackgroundColor(Color.rgb(255,0,0));
-                    active3 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn3.setBackgroundColor(Color.rgb(0,255,0));
-                    active3 = 0;
-                    //colorChanger(btn3, active3);
+                    colorChanger(btn3, active3);
                     break;
                 case 4:
-                    btn4.setBackgroundColor(Color.rgb(255,0,0));
-                    active4 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn4.setBackgroundColor(Color.rgb(0,255,0));
-                    active4 = 0;
-                    //colorChanger(btn4, active4);
+                    colorChanger(btn4, active4);
                     break;
                 case 5:
-                    //colorChanger(btn5, active5);
-                    btn5.setBackgroundColor(Color.rgb(255,0,0));
-                    active5 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn5.setBackgroundColor(Color.rgb(0,255,0));
-                    active5 = 0;
+                    colorChanger(btn5, active5);
                     break;
                 case 6:
-                    //colorChanger(btn6, active6);
-                    btn6.setBackgroundColor(Color.rgb(255,0,0));
-                    active6 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn6.setBackgroundColor(Color.rgb(0,255,0));
-                    active6 = 0;
+                    colorChanger(btn6, active6);
                     break;
                 case 7:
-                    //colorChanger(btn7, active7);
-                    btn7.setBackgroundColor(Color.rgb(255,0,0));
-                    active7 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn7.setBackgroundColor(Color.rgb(0,255,0));
-                    active7 = 0;
+                    colorChanger(btn7, active7);
                     break;
                 case 8:
-                    //colorChanger(btn8, active8);
-                    btn8.setBackgroundColor(Color.rgb(255,0,0));
-                    active8 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn8.setBackgroundColor(Color.rgb(0,255,0));
-                    active8 = 0;
+                    colorChanger(btn8, active8);
                     break;
                 case 9:
-                    //colorChanger(btn9, active9);
-                    btn9.setBackgroundColor(Color.rgb(255,0,0));
-                    active9 = 1;
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    btn9.setBackgroundColor(Color.rgb(0,255,0));
-                    active9 = 0;
+                    colorChanger(btn9, active9);
                     break;
             }
         }
     }
-   /* public void colorChanger(Button change, int active)
+    public void colorChanger(Button change, BooleanReplacer active)
     {
         change.setBackgroundColor(Color.rgb(255,0,0));
-        active = 1;
+        active.setBool(true);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         change.setBackgroundColor(Color.rgb(0,255,0));
-        active = 0;
-    }*/
-    public void LoseHPwinPoints(final Button change, int active)
+        active.setBool(false);
+    }
+    public void LoseHPwinPoints(final Button change, BooleanReplacer active)
     {
-        if (active == 1) {
+        if (active.getBool() == true) {
             change.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -212,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
-        if (active == 0) {
+        if (active.getBool() == false) {
             change.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

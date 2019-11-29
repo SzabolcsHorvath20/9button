@@ -1,7 +1,11 @@
 package com.example.a9button;
 
 public class BooleanReplacer {
-    private Boolean bool;
+    private boolean bool;
+
+    public BooleanReplacer(Boolean bool) {
+        this.bool = bool;
+    }
 
     public Boolean getBool() {
         return bool;
