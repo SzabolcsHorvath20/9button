@@ -35,9 +35,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
+
+
+        hppoints();
         tvhp.setText(String.valueOf(hp));
         i.start();
-        hppoints();
     }
 
     protected void onStop()
@@ -58,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         active9.setBool(false);
 
 
-        LoseHPwinPoints(btn1, active1);
+        /*LoseHPwinPoints(btn1, active1);
         LoseHPwinPoints(btn2, active2);
         LoseHPwinPoints(btn3, active3);
         LoseHPwinPoints(btn4, active4);
@@ -66,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LoseHPwinPoints(btn6, active6);
         LoseHPwinPoints(btn7, active7);
         LoseHPwinPoints(btn8, active8);
-        LoseHPwinPoints(btn9, active9);
+        LoseHPwinPoints(btn9, active9);*/
 
     }
     public void init()
@@ -94,6 +105,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         while (hp != 0)
         {
+            btn1.setClickable(true);
+            btn2.setClickable(true);
+            btn3.setClickable(true);
+            btn4.setClickable(true);
+            btn5.setClickable(true);
+            btn6.setClickable(true);
+            btn7.setClickable(true);
+            btn8.setClickable(true);
+            btn9.setClickable(true);
             int random = rnd.nextInt(9);
             int button = random+1;
             switch (button)
@@ -133,14 +153,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         change.setBackgroundColor(Color.rgb(255,0,0));
         active.setBool(true);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         change.setBackgroundColor(Color.rgb(0,255,0));
         active.setBool(false);
     }
-    public void LoseHPwinPoints(final Button change, BooleanReplacer active)
+    /*public void LoseHPwinPoints(final Button change, BooleanReplacer active)
     {
         if (active.getBool() == true) {
             change.setOnClickListener(new View.OnClickListener() {
@@ -160,9 +180,114 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
-    }
+    }*/
     @Override
     public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.btn1:
+                if (active1.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active1.getBool() == true) {
+                            points++;
+                            tvpoints.setText(String.valueOf(points));
+                            active1.setBool(false);
+                    }
+                btn1.setClickable(false);
+                break;
+            case R.id.btn2:
+                if (active2.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active2.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn2.setClickable(false);
+                break;
+            case R.id.btn3:
+                if (active3.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active3.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn3.setClickable(false);
+                break;
+            case R.id.btn4:
+                if (active4.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active4.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn4.setClickable(false);
+                break;
+            case R.id.btn5:
+                if (active5.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active5.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn5.setClickable(false);
+                break;
+            case R.id.btn6:
+                if (active6.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active6.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn6.setClickable(false);
+                break;
+            case R.id.btn7:
+                if (active7.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active7.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn7.setClickable(false);
+                break;
+            case R.id.btn8:
+                if (active8.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active8.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn8.setClickable(false);
+                break;
+            case R.id.btn9:
+                if (active9.getBool() == false) {
+                    hp--;
+                    tvhp.setText(String.valueOf(hp));
+                };
+                if (active9.getBool() == true) {
+                    points++;
+                    tvpoints.setText(String.valueOf(points));
+                }
+                btn9.setClickable(false);
+                break;
 
+
+
+        }
     }
 }
